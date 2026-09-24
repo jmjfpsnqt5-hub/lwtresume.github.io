@@ -105,7 +105,7 @@
     };
 
     document.addEventListener('click', (event) => {
-      const materialLink = event.target.closest('.material-grid a[href], .charity-gallery a[href], .art-scroll .art-card img');
+      const materialLink = event.target.closest('.material-grid a[href], .material-scroll a[href], .charity-gallery a[href], .art-scroll .art-card img');
       if (!materialLink) return;
       event.preventDefault();
       previewImage.src = materialLink.tagName === 'IMG' ? materialLink.currentSrc || materialLink.src : materialLink.href;
@@ -415,5 +415,24 @@
     .video-external:hover{transform:translateY(-2px);box-shadow:0 12px 22px #72586642}
     .video-external:hover img{transform:scale(1.04)}
   </style>
+  <style>
+    .material-grid{position:static;display:flex;align-items:flex-start;gap:12px;min-height:0;padding:3px 3px 14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+    .material-grid::-webkit-scrollbar{display:none}
+    .material-grid .paired-material{display:none!important}
+    .material-grid .material-card,.material-grid .material-card.material-five,.material-grid .material-card.material-six{position:relative!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;z-index:auto!important;display:block!important;flex:0 0 150px;width:150px!important;margin:0!important;padding:8px!important;border-radius:16px!important;background:#fffdf8!important;box-shadow:0 7px 15px #b584751a!important;transform:none!important;scroll-snap-align:start}
+    .material-grid .material-card:nth-of-type(even){transform:translateY(13px) rotate(1deg)!important}
+    .material-grid .material-card img,.material-grid .material-card.material-five img,.material-grid .material-card.material-six img{width:100%!important;height:180px!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:center!important;border:0!important;border-radius:10px!important;box-shadow:none!important}
+    .material-grid .material-card p,.material-grid .material-card.material-five p,.material-grid .material-card.material-six p{position:static!important;display:block!important;margin:7px 3px 0!important;transform:none!important;color:#75616a!important;font-size:.76rem!important;font-weight:700!important;text-align:left!important;text-shadow:none!important;white-space:normal!important}
+    .material-grid .material-card:hover{transform:translateY(-3px) scale(1.025)!important}
+  </style>
+  <script>
+    const materialOutput = document.querySelector('.material-grid');
+    materialOutput.querySelector('.paired-material')?.remove();
+    materialOutput.className = 'art-scroll material-scroll';
+    materialOutput.setAttribute('aria-label', '物料作品，向左滑动查看更多');
+    materialOutput.querySelectorAll('.material-card').forEach((card) => {
+      card.className = 'art-card material-output-card';
+    });
+  </script>
 </body>
 </html>
