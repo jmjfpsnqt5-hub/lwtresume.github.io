@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI短剧 · 澎湃新闻叙事切片</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-main">THE PAPER / AI SHORT DRAMA</span>
+      <span class="brand-sub">Narrative Atlas</span>
+    </div>
+    <nav class="nav">
+      <a href="#hero">首屏</a>
+      <a href="#overview">概览</a>
+      <a href="#topics">主题</a>
+      <a href="#emotion">情绪</a>
+      <a href="#network">网络</a>
+    </nav>
+    <div class="credit">李婉婷整理</div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-orbit hero-orbit-left"></div>
+      <div class="hero-orbit hero-orbit-right"></div>
+      <div id="heroGallery" class="hero-gallery"></div>
+
+      <div class="hero-center">
+        <p class="eyebrow reveal">澎湃新闻数据可视化 / 2018.12 - 2026.04</p>
+        <h1 class="hero-title reveal">
+          <span class="title-single">AI短剧 / 澎湃新闻叙事切片</span>
+        </h1>
+        <p id="heroSubtitle" class="hero-subtitle reveal"></p>
+        <div class="hero-metrics reveal" id="heroMetrics"></div>
+        <button id="galleryToggle" class="gallery-toggle reveal" type="button">
+          点击展开封面画廊
+        </button>
+        <a class="hero-cta reveal" href="#overview">
+          进入数据现场
+          <span class="hero-cta-icon">↓</span>
+        </a>
+      </div>
+
+      <div class="hero-footer">
+        <div class="hero-quote" id="heroQuote"></div>
+        <div class="scroll-hint">
+          <span>SCROLL</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview" class="section">
+      <div class="section-intro reveal">
+        <p class="eyebrow">01 / 数据概览</p>
+        <h2>在 539 篇报道里，AI短剧从试验概念变成高频议题。</h2>
+        <p>概览区先回答三个问题：这股热度什么时候被点燃、讨论集中在什么时段、以及整体报道规模如何陡升。</p>
+      </div>
+
+      <div id="overviewStats" class="stats-grid"></div>
+
+      <div class="panel-grid panel-grid-2">
+        <article class="panel reveal">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">Volume Curve</p>
+              <h3>年度分布</h3>
+            </div>
+            <p>2025—2026 成为明显主峰</p>
+          </div>
+          <div id="yearBars" class="viz viz-bars"></div>
+        </article>
+
+        <article class="panel reveal">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">Week Rhythm</p>
+              <h3>发布时间节律</h3>
+            </div>
+            <p>工作日密集，周五最活跃</p>
+          </div>
+          <div id="weekdayBars" class="viz viz-bars"></div>
+        </article>
+      </div>
+
+      <article class="panel panel-wide reveal">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Heat Wave</p>
+            <h3>近 18 个月报道热度曲线</h3>
+          </div>
+          <p>峰值出现在 2026 年 3 月</p>
+        </div>
+        <div id="monthlyTrend" class="viz viz-line"></div>
+      </article>
+    </section>
+
+    <section id="keywords" class="section section-dark">
+      <div class="section-intro reveal">
+        <p class="eyebrow">02 / 关键词分析</p>
+        <h2>高频词像一条持续流动的舆论截面，穿过 AI 短剧的技术、平台、爆款与治理现场。</h2>
+        <p>它们不是孤立标签，而是这批报道里反复缠绕的核心语义：技术升级、平台博弈、流量竞争、版权风险与行业规范。</p>
+      </div>
+
+      <article class="panel reveal">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Keyword Stream</p>
+            <h3>关键词弹幕</h3>
+          </div>
+          <p>随机间隔、不同权重、持续飘移</p>
+        </div>
+        <div id="keywordStage" class="keyword-stage"></div>
+      </article>
+
+      <div id="keywordCloud" class="keyword-cloud reveal"></div>
+    </section>
+
+    <section id="topics" class="section">
+      <div class="section-intro reveal">
+        <p class="eyebrow">03 / 主题分析</p>
+        <h2>AI短剧的报道核心，主要在行业扩张、技术生产、创作者生态与治理边界之间摆动。</h2>
+        <p>这里不是严格学术 LDA 论文风格，而是基于真实文本语义规则提炼出的主题簇，更适合网页叙事展示。</p>
+      </div>
+
+      <div id="topicCards" class="topic-cards"></div>
+
+      <article class="panel panel-wide reveal">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Topic Momentum</p>
+            <h3>热点事件趋势</h3>
+          </div>
+          <p>观察主要议题如何随时间起伏</p>
+        </div>
+        <div id="topicTrend" class="viz viz-line"></div>
+      </article>
+    </section>
+
+    <section id="emotion" class="section section-dark">
+      <div class="section-intro reveal">
+        <p class="eyebrow">04 / 情感与角色</p>
+        <h2>整体舆论偏正向，但负向情绪会在侵权、治理、下架与行业焦虑节点突然抬头。</h2>
+        <p>由于数据中没有媒体来源字段，我将原“来源对比”替换为“叙事角色对比”，看报道更常围绕谁展开。</p>
+      </div>
+
+      <div class="panel-grid panel-grid-2">
+        <article class="panel reveal">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">Sentiment Split</p>
+              <h3>情感占比</h3>
+            </div>
+            <p>正向 / 中性 / 负向</p>
+          </div>
+          <div id="sentimentDonut" class="viz viz-donut"></div>
+        </article>
+
+        <article class="panel reveal">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">Narrative Roles</p>
+              <h3>叙事角色对比</h3>
+            </div>
+            <p>平台、创作者、监管、流量等视角的提及强度</p>
+          </div>
+          <div id="roleCompare" class="viz viz-stack"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="network" class="section">
+      <div class="section-intro reveal">
+        <p class="eyebrow">05 / 传播网络</p>
+        <h2>如果把高频关键词当作节点，就能看见它们之间不断缠绕的关联路径。</h2>
+        <p>“技术”“平台”“市场”“流量”“风险”是这张网络里最稳定的中枢。</p>
+      </div>
+
+      <article class="panel panel-wide reveal">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Co-occurrence Network</p>
+            <h3>新闻传播网络</h3>
+          </div>
+          <p>基于同篇报道内关键词共现关系生成</p>
+        </div>
+        <div id="networkGraph" class="viz viz-network"></div>
+      </article>
+
+      <div class="panel-grid panel-grid-2">
+        <article class="panel reveal">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">Latest Pulse</p>
+              <h3>最近报道切片</h3>
+            </div>
+            <p>用最新标题看当下讨论重心</p>
+          </div>
+          <div id="recentArticles" class="article-list"></div>
+        </article>
+
+        <article class="panel reveal">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">Project Note</p>
+              <h3>项目说明</h3>
+            </div>
+            <p>网页 / 数据 / 方法</p>
+          </div>
+          <div class="project-note">
+            <p>数据来源：澎湃新闻 AI短剧相关报道，共 539 篇。</p>
+            <p>数据字段：标题、链接、发布时间、正文内容。</p>
+            <p>分析方式：规则型主题归类、词频共现、词典式情感打分。</p>
+            <p>表现方式：纯前端本地可运行，无需外部图表 CDN。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
